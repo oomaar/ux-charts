@@ -1,21 +1,21 @@
-/*!
+// /*!
 
-=========================================================
-* Vision UI Free Chakra - v1.0.0
-=========================================================
+// =========================================================
+// * Vision UI Free Chakra - v1.0.0
+// =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-free-chakra
-* Copyright 2021 Creative Tim (https://www.creative-tim.com/)
-* Licensed under MIT (https://github.com/creativetimofficial/vision-ui-free-chakra/blob/master LICENSE.md)
+// * Product Page: https://www.creative-tim.com/product/vision-ui-free-chakra
+// * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
+// * Licensed under MIT (https://github.com/creativetimofficial/vision-ui-free-chakra/blob/master LICENSE.md)
 
-* Design and Coded by Simmmple & Creative Tim
+// * Design and Coded by Simmmple & Creative Tim
 
-=========================================================
+// =========================================================
 
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+// * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-*/
-import React from "react";
+// */
+import React, { useEffect, useState } from "react";
 
 // Chakra imports
 import {
@@ -24,6 +24,7 @@ import {
   Flex,
   Grid,
   Icon,
+  Input,
   Progress,
   SimpleGrid,
   Spacer,
@@ -70,6 +71,7 @@ import {
 } from "react-icons/io5";
 import { BiHappy } from "react-icons/bi";
 import { AiFillCheckCircle } from "react-icons/ai";
+// import axios from "axios";
 
 // Data
 import {
@@ -79,12 +81,96 @@ import {
   lineChartOptionsDashboard,
 } from "variables/charts";
 import { dashboardTableData, timelineData } from "variables/general";
+import { SearchBar } from "components/Navbars/SearchBar/SearchBar";
 
 export default function Dashboard() {
+  const [appPerformance, setAppPerformance] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  // console.log("🚀 ~ file: Dashboard.js ~ line 89 ~ Dashboard ~ searchTerm", searchTerm)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(
+        `https://my-json-server.typicode.com/WorexEG/json-server/appPerformance`
+      ).then(data => data.json());
+      setAppPerformance(res);
+    };
+
+    fetchData();
+  }, []);
+
+  const timeStamps = [
+    {
+      applicationName: 'Zendesk',
+      deviceUserName: 'Hassan',
+      Time: '5pm',
+      Date: '1/23/2022'
+    },
+    {
+      applicationName: 'Oracle NetSuite',
+      deviceUserName: 'Ramzy',
+      Time: '2am',
+      Date: '1/22/2022'
+    },
+    {
+      applicationName: 'Microsoft Dynamics',
+      deviceUserName: 'Omar',
+      Time: '4pm',
+      Date: '1/20/2022'
+    },
+    {
+      applicationName: 'Salesforce',
+      deviceUserName: 'Ramzy',
+      Time: '11pm',
+      Date: '1/19/2022'
+    },
+    {
+      applicationName: 'Microsoft Visual Studio',
+      deviceUserName: 'Omar',
+      Time: '8pm',
+      Date: '1/29/2022'
+    },
+    {
+      applicationName: 'Microsoft Outlook',
+      deviceUserName: 'Ramzy',
+      Time: '11am',
+      Date: '1/30/2022'
+    },
+    {
+      applicationName: 'Teams Microsoft',
+      deviceUserName: 'Hassan',
+      Time: '10am',
+      Date: '1/31/2022'
+    },
+    {
+      applicationName: 'Zoom',
+      deviceUserName: 'Hassan',
+      Time: '7pm',
+      Date: '2/1/2022'
+    }
+  ];
+
+  // let tabledata = [];
+
+  // if (appPerformance.length > 0) {
+  //   appPerformance.map(app => {
+  //     let obj = {
+  //       applicationName: app.applicationName,
+  //       failerRate: `${app.failerRate}%`
+  //     }
+  //     tabledata = [...tabledata, obj]
+  //   })
+  // };
+  // console.log("🚀 ~ file: Dashboard.js ~ line 100 ~ Dashboard ~ tabledata", tabledata)
+
   return (
     <Flex flexDirection='column' pt={{ base: "120px", md: "75px" }}>
-      <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing='24px'>
-        {/* MiniStatistics Card */}
+      {/* Simple Grid-1 */}
+      {/* MiniStatistics Card: Card-1*/}
+      {/* MiniStatistics Card: Card-2 */}
+      {/* MiniStatistics Card: Card-3 */}
+      {/* MiniStatistics Card: Card-4 */}
+      {/* <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing='24px'>
         <Card>
           <CardBody>
             <Flex flexDirection='row' align='center' justify='center' w='100%'>
@@ -118,7 +204,6 @@ export default function Dashboard() {
             </Flex>
           </CardBody>
         </Card>
-        {/* MiniStatistics Card */}
         <Card minH='83px'>
           <CardBody>
             <Flex flexDirection='row' align='center' justify='center' w='100%'>
@@ -152,7 +237,6 @@ export default function Dashboard() {
             </Flex>
           </CardBody>
         </Card>
-        {/* MiniStatistics Card */}
         <Card>
           <CardBody>
             <Flex flexDirection='row' align='center' justify='center' w='100%'>
@@ -187,7 +271,6 @@ export default function Dashboard() {
             </Flex>
           </CardBody>
         </Card>
-        {/* MiniStatistics Card */}
         <Card>
           <CardBody>
             <Flex flexDirection='row' align='center' justify='center' w='100%'>
@@ -221,13 +304,13 @@ export default function Dashboard() {
             </Flex>
           </CardBody>
         </Card>
-      </SimpleGrid>
-      <Grid
+      </SimpleGrid> */}
+      {/* <Grid
         templateColumns={{ sm: "1fr", md: "1fr 1fr", "2xl": "2fr 1.2fr 1.5fr" }}
         my='26px'
-        gap='18px'>
-        {/* Welcome Card */}
-        <Card
+        gap='18px'> */}
+      {/* Welcome Card */}
+      {/* <Card
           p='0px'
           gridArea={{ md: "1 / 1 / 2 / 3", "2xl": "auto" }}
           bgImage={medusa}
@@ -289,9 +372,9 @@ export default function Dashboard() {
               </Flex>
             </Flex>
           </CardBody>
-        </Card>
-        {/* Satisfaction Rate */}
-        <Card gridArea={{ md: "2 / 1 / 3 / 2", "2xl": "auto" }}>
+        </Card> */}
+      {/* Satisfaction Rate */}
+      {/* <Card gridArea={{ md: "2 / 1 / 3 / 2", "2xl": "auto" }}>
           <CardHeader mb='24px'>
             <Flex direction='column'>
               <Text color='#fff' fontSize='lg' fontWeight='bold' mb='4px'>
@@ -311,10 +394,11 @@ export default function Dashboard() {
                 isGradient
                 gradient={{
                   angle: 90,
-                  startColor: "rgba(117, 81, 255, 0)",
+                  startColor: "rgba(117, 81, 255, 0.8)",
                   stopColor: "#582CFF",
                 }}
-                emptyColor='#22234B'>
+                emptyColor='#22234B'
+              >
                 <IconBox
                   bg='brand.200'
                   borderRadius='50%'
@@ -355,9 +439,9 @@ export default function Dashboard() {
               </Text>
             </Stack>
           </Flex>
-        </Card>
-        {/* Referral Tracking */}
-        <Card gridArea={{ md: "2 / 2 / 3 / 3", "2xl": "auto" }}>
+        </Card> */}
+      {/* Referral Tracking */}
+      {/* <Card gridArea={{ md: "2 / 2 / 3 / 3", "2xl": "auto" }}>
           <Flex direction='column'>
             <Flex justify='space-between' align='center' mb='40px'>
               <Text color='#fff' fontSize='lg' fontWeight='bold'>
@@ -445,15 +529,15 @@ export default function Dashboard() {
               </Box>
             </Flex>
           </Flex>
-        </Card>
-      </Grid>
-      <Grid
+        </Card> */}
+      {/* </Grid> */}
+      {/* <Grid
         templateColumns={{ sm: "1fr", lg: "1.7fr 1.3fr" }}
         maxW={{ sm: "100%", md: "100%" }}
         gap='24px'
-        mb='24px'>
-        {/* Sales Overview */}
-        <Card p='28px 0px 0px 0px'>
+        mb='24px'> */}
+      {/* Sales Overview */}
+      {/* <Card p='28px 0px 0px 0px'>
           <CardHeader mb='20px' ps='22px'>
             <Flex direction='column' alignSelf='flex-start'>
               <Text fontSize='lg' color='#fff' fontWeight='bold' mb='6px'>
@@ -473,9 +557,9 @@ export default function Dashboard() {
               lineChartOptions={lineChartOptionsDashboard}
             />
           </Box>
-        </Card>
-        {/* Active Users */}
-        <Card p='16px'>
+        </Card> */}
+      {/* Active Users */}
+      {/* <Card p='16px'>
           <CardBody>
             <Flex direction='column' w='100%'>
               <Box
@@ -631,16 +715,69 @@ export default function Dashboard() {
             </Flex>
           </CardBody>
         </Card>
-      </Grid>
+      </Grid> */}
       <Grid
-        templateColumns={{ sm: "1fr", md: "1fr 1fr", lg: "2fr 1fr" }}
+        templateColumns={{ sm: "1fr", md: "1fr", lg: "1fr" }}
         gap='24px'>
         {/* Projects */}
         <Card p='16px' overflowX={{ sm: "scroll", xl: "hidden" }}>
           <CardHeader p='12px 0px 28px 0px'>
             <Flex direction='column'>
               <Text fontSize='lg' color='#fff' fontWeight='bold' pb='8px'>
-                Projects
+                All The Applications
+              </Text>
+              <Flex align='center'>
+                <Icon
+                  as={IoCheckmarkDoneCircleSharp}
+                  color='teal.300'
+                  w={4}
+                  h={4}
+                  pe='3px'
+                />
+                <SearchBar setSearchTerm={setSearchTerm} />
+              </Flex>
+            </Flex>
+          </CardHeader>
+          <Table variant='simple' color='#fff'>
+            <Thead>
+              <Tr my='.8rem' ps='0px'>
+                <Th
+                  color='gray.400'
+                  fontFamily='Plus Jakarta Display'
+                  borderBottomColor='#56577A'>
+                  Application Name
+                </Th>
+                <Th
+                  color='gray.400'
+                  fontFamily='Plus Jakarta Display'
+                  borderBottomColor='#56577A'>
+                  Failure Percentage
+                </Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {appPerformance.filter(row => {
+                if (searchTerm == "") {
+                  return row
+                } else if (row.applicationName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                  return row
+                }
+              }).map((row) => {
+                return (
+                  <DashboardTableRow
+                    name={row.applicationName}
+                    budget={row.failerRate}
+                  />
+                );
+              })}
+            </Tbody>
+          </Table>
+        </Card>
+        <Card p='16px' overflowX={{ sm: "scroll", xl: "hidden" }}>
+          <CardHeader p='12px 0px 28px 0px'>
+            <Flex direction='column'>
+              <Text fontSize='lg' color='#fff' fontWeight='bold' pb='8px'>
+                Devices
               </Text>
               <Flex align='center'>
                 <Icon
@@ -651,10 +788,7 @@ export default function Dashboard() {
                   pe='3px'
                 />
                 <Text fontSize='sm' color='gray.400' fontWeight='normal'>
-                  <Text fontWeight='bold' as='span'>
-                    30 done
-                  </Text>{" "}
-                  this month.
+                  <SearchBar setSearchTerm={setSearchTerm} />
                 </Text>
               </Flex>
             </Flex>
@@ -667,38 +801,42 @@ export default function Dashboard() {
                   color='gray.400'
                   fontFamily='Plus Jakarta Display'
                   borderBottomColor='#56577A'>
-                  Companies
+                  Application Name
                 </Th>
                 <Th
                   color='gray.400'
                   fontFamily='Plus Jakarta Display'
                   borderBottomColor='#56577A'>
-                  Members
+                  Username
                 </Th>
                 <Th
                   color='gray.400'
                   fontFamily='Plus Jakarta Display'
                   borderBottomColor='#56577A'>
-                  Budget
+                  Date
                 </Th>
                 <Th
                   color='gray.400'
                   fontFamily='Plus Jakarta Display'
                   borderBottomColor='#56577A'>
-                  Completion
+                  Time
                 </Th>
               </Tr>
             </Thead>
             <Tbody>
-              {dashboardTableData.map((row, index, arr) => {
+              {timeStamps.filter(row => {
+                if (searchTerm == "") {
+                  return row
+                } else if (row.applicationName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                  return row
+                }
+              }).map((row) => {
                 return (
                   <DashboardTableRow
-                    name={row.name}
-                    logo={row.logo}
-                    members={row.members}
-                    budget={row.budget}
-                    progression={row.progression}
-                    lastItem={index === arr.length - 1 ? true : false}
+                    name={row.applicationName}
+                    userName={row.deviceUserName}
+                    date={row.Date}
+                    time={row.Time}
                   />
                 );
               })}
@@ -706,7 +844,7 @@ export default function Dashboard() {
           </Table>
         </Card>
         {/* Orders Overview */}
-        <Card>
+        {/* <Card>
           <CardHeader mb='32px'>
             <Flex direction='column'>
               <Text fontSize='lg' color='#fff' fontWeight='bold' mb='6px'>
@@ -745,7 +883,7 @@ export default function Dashboard() {
               })}
             </Flex>
           </CardBody>
-        </Card>
+        </Card> */}
       </Grid>
     </Flex>
   );
