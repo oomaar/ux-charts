@@ -86,7 +86,7 @@ import { SearchBar } from "components/Navbars/SearchBar/SearchBar";
 export default function Dashboard() {
   const [appPerformance, setAppPerformance] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  // console.log("🚀 ~ file: Dashboard.js ~ line 89 ~ Dashboard ~ searchTerm", searchTerm)
+  const [deviceSearchTerm, setDeviceSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -734,7 +734,9 @@ export default function Dashboard() {
                   h={4}
                   pe='3px'
                 />
-                <SearchBar setSearchTerm={setSearchTerm} />
+                <Text fontSize='sm' color='gray.400' fontWeight='normal'>
+                  <SearchBar setSearchTerm={setSearchTerm} />
+                </Text>
               </Flex>
             </Flex>
           </CardHeader>
@@ -788,7 +790,7 @@ export default function Dashboard() {
                   pe='3px'
                 />
                 <Text fontSize='sm' color='gray.400' fontWeight='normal'>
-                  <SearchBar setSearchTerm={setSearchTerm} />
+                  <SearchBar setSearchTerm={setDeviceSearchTerm} />
                 </Text>
               </Flex>
             </Flex>
@@ -825,9 +827,9 @@ export default function Dashboard() {
             </Thead>
             <Tbody>
               {timeStamps.filter(row => {
-                if (searchTerm == "") {
+                if (deviceSearchTerm == "") {
                   return row
-                } else if (row.applicationName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                } else if (row.applicationName.toLowerCase().includes(deviceSearchTerm.toLowerCase())) {
                   return row
                 }
               }).map((row) => {
