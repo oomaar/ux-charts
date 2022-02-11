@@ -1,0 +1,52 @@
+{
+  "devicesTable": [
+    {
+      "applicationName": "Zendesk",
+      "deviceUserName": "Hassan",
+      "Time": "5pm",
+      "Date": "1/23/2022"
+    },
+    {
+      "applicationName": "Oracle NetSuite",
+      "deviceUserName": "Ramzy",
+      "Time": "2am",
+      "Date": "1/22/2022"
+    },
+    {
+      "applicationName": "Microsoft Dynamics",
+      "deviceUserName": "Omar",
+      "Time": "4pm",
+      "Date": "1/20/2022"
+    },
+    {
+      "applicationName": "Salesforce",
+      "deviceUserName": "Ramzy",
+      "Time": "11pm",
+      "Date": "1/19/2022"
+    },
+    {
+      "applicationName": "Microsoft Visual Studio",
+      "deviceUserName": "Omar",
+      "Time": "8pm",
+      "Date": "1/29/2022"
+    },
+    {
+      "applicationName": "Microsoft Outlook",
+      "deviceUserName": "Ramzy",
+      "Time": "11am",
+      "Date": "1/30/2022"
+    },
+    {
+      "applicationName": "Teams Microsoft",
+      "deviceUserName": "Hassan",
+      "Time": "10am",
+      "Date": "1/31/2022"
+    },
+    {
+      "applicationName": "Zoom",
+      "deviceUserName": "Hassan",
+      "Time": "7pm",
+      "Date": "2/1/2022"
+    }
+  ]
+}
