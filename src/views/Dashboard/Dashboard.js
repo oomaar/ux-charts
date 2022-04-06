@@ -27,12 +27,7 @@ export default function Dashboard() {
   const [searchTerm, setSearchTerm] = useState("");
   const [deviceSearchTerm, setDeviceSearchTerm] = useState("");
   const devicesTable = dashboardData.devicesTable;
-
   const appPerformance = dashboardData.chartsData;
-  console.log(
-    "🚀 ~ file: Dashboard.js ~ line 32 ~ Dashboard ~ appPerformance",
-    appPerformance
-  );
 
   return (
     <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
