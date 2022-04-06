@@ -1,4 +1,30 @@
 {
+  "chartsData": [
+    {
+      "id": "1",
+      "applicationName": "Microsoft Dynamics",
+      "successRate": 76,
+      "failerRate": 24
+    },
+    {
+      "id": "2",
+      "applicationName": "Zendesk",
+      "successRate": 55,
+      "failerRate": 45
+    },
+    {
+      "id": "3",
+      "applicationName": "Oracle NetSuite",
+      "successRate": 66,
+      "failerRate": 34
+    },
+    {
+      "id": "4",
+      "applicationName": "Salesforce",
+      "successRate": 94,
+      "failerRate": 6
+    }
+  ],
   "devicesTable": [
     {
       "applicationName": "Zendesk",
